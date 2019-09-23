@@ -45,14 +45,14 @@ function decode(expr) {
     let i = 0;
     while(i < count) {
         let word = expr.substr(10*i, 10);
-        result += word === SPACE ? " " : getLetter(word, 2);
+        result += word === SPACE ? " " : getLetter(word);
 
         i++;
     }
     return result;
 }
 
-function getLetter(expr, step) {
+function getLetter(expr) {
     let result = "";
     let i = 0;
     while(i < 5) {
