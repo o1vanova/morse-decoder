@@ -37,8 +37,31 @@ const MORSE_TABLE = {
     '-----':  '0',
 };
 
+const SPACE = "**********";
+
 function decode(expr) {
-    // write your solution here
+    let count = expr.length/10;
+    let result = "";
+    let i = 0;
+    while(i < count) {
+        let word = expr.substr(10*i, 10);
+        result += word === SPACE ? " " : getLetter(word, 2);
+
+        i++;
+    }
+    return result;
+}
+
+function getLetter(expr, step) {
+    let result = "";
+    let i = 0;
+    while(i < 5) {
+        let item = expr.substr(2*i, 2);
+        result += item === "00" ? '' : item === "10" ? '.' : '-';
+
+        i++;
+    }
+    return MORSE_TABLE[result];
 }
 
 module.exports = {
